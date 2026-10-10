@@ -30,14 +30,14 @@ def read_five_ints():
         # add the int to grades at index idx
         str_grades = input("Give me the next grade in [0 to 10]:")
         if str_grades.isdigit():
-            int(str_grades) == str_grades
-            if int(str_grades)>10 :
+            int_str_grades = int(str_grades)
+            if int_str_grades>10 :
                 print(f"Error in read_five_ints: input integer outside of range")
                 exit()
         else:
             print("Error in read_five_ints: input string is not for an integer")
             exit()
-        grades[idx] = str_grades
+        grades[idx] = int_str_grades
 
     #Anything with this indentation is NO LONGER inside the loop
 
@@ -68,6 +68,7 @@ def pick_averaging_method():
         return avg
     else:
         print("Error in pick_averaging_method: incorrect option picked")
+        exit()
 
 # Task 3:
 #  Complete the function "pick_visualization" below:
@@ -80,7 +81,16 @@ def pick_visualization(average):
     Any other input prints
     'Error in pick_visualization: incorrect option picked'.
     """
-    pass
+    pr_type = input("Pick '1' for print average, or '2' for plot average: ")
+    
+    if pr_type.isdigit and int(pr_type) == 1:
+        print_list_and_average(average)
+    elif int(pr_type) == 2:
+        plot_grades(average)
+    else:
+        print("Error in pick_visualization: incorrect option picked")
+        exit()
+    
 
 
 # ---------------------------------------
